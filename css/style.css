@@ -1,0 +1,782 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    text-decoration: none
+}
+body{
+    max-width: 1440px auto;
+    min-height: 80vh auto;
+    height: auto;
+}
+.max-width {
+    margin: auto;
+    max-width: 1440px;
+    padding: 0 80px
+}
+.navbar {
+    font-family:'Ubuntu', sans-serif;
+    padding: 30px 0px;
+    position: fixed;
+    -webkit-transform: all .3s ease;
+    transform: all .3s ease;
+    width: 100%;
+    z-index: 999
+}
+.navbar.sticky {
+    background: crimson;
+    height: 25px;
+}
+.navbar .max-width {
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+.navbar .logo a {
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600
+}
+.navbar .logo a span {
+    color: crimson;
+    -webkit-transform: all .3s ease;
+    transform: all .3s ease
+}
+.navbar.sticky .logo a span {
+    color: #fff
+}
+.navbar .menu li {
+    display: inline-block;
+    list-style: none
+}
+.navbar .menu li a {
+    display: flex;
+    padding: 14px;
+    font-weight: 500;
+    color: #fff;
+    font-size: 18px;
+    transition: all 300ms ease;
+}
+.navbar .menu li a:hover {
+    color: crimson;
+    /*efectos*/
+    text-transform: uppercase;
+    transform: scale(1.1);
+    text-shadow: 1px 1px 1px  #000;
+}
+.navbar.sticky li a:hover {
+    color: #fff;
+}
+/*icono de inicio*/
+.navbar .menu li:first-child > a{
+    background-image: url(../img/inicio.png);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 12px 30px;
+}
+.navbar .menu li:first-child > a:hover{
+    background-image: url(../img/inicio.png);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transform: scale(1.1);
+    /*color del icono|| drop shadow es la sobra el resto es el filter (color icono)*/
+    filter: drop-shadow(1px 1px 1px  #000) invert(23%) sepia(71%) saturate(7056%) hue-rotate(340deg) brightness(87%) contrast(98%);
+}
+.navbar.sticky .menu li:first-child > a{
+    background-image: url(../img/inicio.png);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.navbar.sticky .menu li:first-child > a:hover{
+    background-image: url(../img/inicio.png);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transform: scale(1.1);
+    /*color del icono|| drop shadow es la sobra el resto es el filter (olor icono)*/
+    filter: drop-shadow(1px 1px 1px  #000);
+}
+/*para mostrar que pagina esta seleccionada*/
+#selected1{
+    filter:drop-shadow(1px 1px 1px  red) invert(8%) sepia(81%) saturate(7099%) hue-rotate(343deg) brightness(99%) contrast(104%);
+    text-transform: uppercase;
+    transform: scale(1.1);
+}
+#selected2{
+    color: crimson;
+    text-transform: uppercase;
+    transform: scale(1.1);
+}
+.navbar.sticky #selected2{
+    color: #333;
+    text-transform: uppercase;
+    transform: scale(1.1);
+}
+.rectangulo {
+    font-family:'Ubuntu', sans-serif;
+    padding: 30px 0;
+    position: fixed;
+    -webkit-transform: all .3s ease;
+    transform: all .3s ease;
+    width: 100%;
+    height: 30px;
+    background: #111;
+    z-index: 999;
+}
+.rectangulo.sticky {
+    background: crimson;
+    height: 40px;
+}
+.menu-btn {
+    display: none;
+    font-size: 23px
+}
+.menu-btn,.scroll-up-btn {
+    color: #fff;
+    cursor: pointer
+}
+.scroll-up-btn {
+    background: crimson;
+    border-radius: 6px;
+    bottom: 10px;
+    font-size: 30px;
+    height: 45px;
+    line-height: 45px;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    right: 30px;
+    text-align: center;
+    transition: all .3s ease;
+    width: 42px;
+    z-index: 9999
+}
+.scroll-up-btn.show {
+    bottom: 30px;
+    opacity: 1;
+    pointer-events: auto
+}
+.fondo{
+    background: url(../img/banner-min.jpg);
+    background-position: auto;
+    background-repeat: no-repeat;
+    background-size: 1440px 100%;
+    
+}/*
+.inicio {
+    color: #fff;
+    display: -ms-flexbox;
+    display: flex;
+    font-family: 'Ubuntu', sans-serif;
+    height: 80vh;
+    min-height: 500px
+}
+.inicio .max-width {
+    margin: auto 0 auto 40px
+}
+.inicio .inicio-contenedor{
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+.inicio .inicio-contenedor .izquierda {
+    width: 65%
+}
+.inicio .inicio-contenedor .derecha img {
+    border-radius: 6px;
+    height: 400px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 400px;
+    align-items: center;
+    padding:  30px;
+    background-repeat: no-repeat;
+    /*color del icono|| drop shadow es la sobra el resto es el filter (color icono)*//*
+    filter: drop-shadow(1px 1px 1px  #000);
+}
+.inicio .inicio-contenedor .derecha {
+    width: 35%
+}
+.inicio .inicio-contenedor .text-1 {
+    font-size: 27px
+}
+.inicio .inicio-contenedor .text-2 {
+    font-size: 75px;
+    font-weight: 600;
+    margin-left: -3px
+}
+.inicio .inicio-contenedor .text-3 {
+    font-size: 40px;
+    margin: 5px 0
+}
+.inicio .inicio-contenedor .text-3 span {
+    color: crimson
+}
+.inicio .inicio-contenedor a {
+    background: crimson;
+    border: 2px solid crimson;
+    border-radius: 6px;
+    color: #fff;
+    display: inline-block;
+    font-size: 25px;
+    margin-top: 20px;
+    padding: 12px 36px;
+    transition: all .3s ease
+}
+.inicio .inicio-contenedor a:hover {
+    background: none;
+    color: crimson
+}*/
+section {
+    padding: 120px 0;
+    height: auto;
+}
+section .title:before {
+    background: #111;
+    bottom: 0;
+    content: "";
+    height: 3px;
+    width: 180px
+}
+section .title:after,section .title:before {
+    left: 50%;
+    position: absolute;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+section .title:after {
+    background: #fff;
+    bottom: -12px;
+    color: crimson;
+    font-size: 20px;
+    padding: 5px
+}
+
+.contacto {
+    font-family: 'Poppins', sans-serif
+}
+.contacto .title {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    position: relative;
+    text-align: center
+}
+.contacto .title:before {
+    background: #111;
+    bottom: 0;
+    content: "";
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 180px
+}
+.contacto .title:after {
+    background: #fff;
+    content: "Aquí"
+}
+.contacto .contacto-contenedor {
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    height: 60vh auto;
+}
+.contacto .contacto-contenedor .columna {
+    width: 50%;
+    width: calc(50% - 30px)
+}
+.contacto .contacto-contenedor .text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px
+}
+.contacto .contacto-contenedor .text2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px
+}
+.contacto .contacto-contenedor .izquierda p {
+    text-align: justify
+}
+.contacto .contacto-contenedor .izquierda .icons {
+    margin: 10px 0
+}
+.contacto .contacto-contenedor .izquierda .link-mail{
+    list-style: none;
+    text-decoration: none;
+}
+.contacto .contacto-contenedor .row {
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    height: 65px
+}
+.contacto .contacto-contenedor .row .info {
+    margin-left: 30px
+}
+.contacto .contacto-contenedor .row i {
+    color: crimson;
+    font-size: 25px
+}
+.contacto .contacto-contenedor .row2 i {
+    color: crimson;
+    font-size: 20px
+}
+.contacto .contacto-contenedor .info .head {
+    font-weight: 500
+}
+.contacto .contacto-contenedor .info .sub-title {
+    color: #333;
+}
+.contacto .derecha form .campos {
+    display: -ms-flexbox;
+    display: flex;
+}
+.contacto .derecha form .campo,
+.contacto .derecha form .campos .campo {
+    height: 45px;
+    margin-bottom: 15px;
+    width: 100%
+}
+.contacto .derecha form .campo input:focus,
+.contacto .derecha form .campo textarea:focus{
+    border: 3px solid #0075FF;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+}
+.contacto .derecha form .nombre {
+    margin-right: 20px;
+}
+.contacto .derecha form .email {
+    margin-left: 20px
+}
+.contacto .derecha form .campo input{
+    border: 1px solid #d3d3d3;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    height: 45px;
+    outline: none;
+    padding: 0 15px;
+    width: 100%
+}
+.contacto .derecha form textarea {
+    border: 1px solid #d3d3d3;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    height: 35px;
+    outline: none;
+    padding: 0 15px;
+    margin-top: 20px;
+    width: 100%;
+}
+.contacto .derecha form .asunto{
+    margin-top: 20px;
+}
+.contacto .derecha form .textarea textarea {
+    padding-top: 10px;
+    resize: none
+}
+.contacto .derecha form .button {
+    height: 47px;
+    width: 170px
+}
+.contacto .derecha form .button button {
+    background: crimson;
+    border: 2px solid crimson;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+    height: 100%;
+    margin-top: 50px;
+    transition: all .3s ease;
+    width: 100%
+}
+.contacto .derecha form .button button:hover {
+    background: none;
+    color: crimson
+}
+.formulario_grupo-input{
+    position: relative;
+}
+.formulario_input-error{
+	font-size: 16px;
+	margin-bottom: 0;
+    font-weight: 500;
+    margin-left: 5px;
+	display: none;
+    color: #bb2929;
+}
+.formulario_input-error-activo{
+    display: block;
+}
+
+.formulario_validacion-estado{
+    position: absolute;
+    right: -15px;
+    bottom: 42px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+.formulario_validacion-estado2{
+    position: absolute;
+    right: -15px;
+    bottom: 24px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+.formulario_validacion-estado3{
+    position: absolute;
+    right: -15px;
+    bottom: 15px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+.formulario_validacion-estado4{
+    position: absolute;
+    right: -15px;
+    bottom: 48px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+/*---------------Estrilo para validacion----*/
+.formulario_grupo-correcto .formulario_validacion-estado{
+    bottom: 14px;
+    color: #1ed12d;
+    opacity: 1;
+}
+.formulario_grupo-correcto .formulario_validacion-estado1{
+    bottom: 15px;
+}
+.formulario_grupo-correcto .formulario_validacion-estado2{
+    bottom: 15px;
+}
+.formulario_grupo-correcto .formulario_validacion-estado3{
+    bottom: 15px;
+}
+.formulario_grupo-correcto .formulario_validacion-estado4{
+    bottom: 22px;
+    color: #1ed12d;
+    opacity: 1;
+}
+.formulario_grupo-incorrecto .formulario_validacion-estado1{
+    bottom: 42px;
+    color: #bb2929;
+    opacity: 1;
+}
+.formulario_grupo-incorrecto .formulario_validacion-estado2{
+    bottom: 42px;
+    color: #bb2929;
+    opacity: 1;
+}
+.formulario_grupo-incorrecto .formulario_validacion-estado3{
+    bottom: 42px;
+    color: #bb2929;
+    opacity: 1;
+}
+.formulario_grupo-incorrecto .formulario_validacion-estado4{
+    bottom: 48px;
+    color: #bb2929;
+    opacity: 1;
+}
+.contacto .derecha form .formulario_grupo-incorrecto input,
+.contacto .derecha form .formulario_grupo-incorrecto textarea{
+    border: 3px solid #bb2929;
+}
+.contacto .derecha form .button button:disabled,
+.contacto .derecha form .button button[disabled]{
+    filter: grayscale(1);
+    cursor: default;
+}
+
+.contacto .derecha form .button button:hover:disabled,
+.contacto .derecha form .button button:hover[disabled]{
+    background: grey;
+    color: none
+}
+
+footer {
+    width: 100% auto;
+    max-width: 1440px auto;
+    position: relative;
+    background: #111;
+    color: #fff;
+    padding: 20px 23px;
+    text-align: center;
+    z-index: -9;
+}
+footer span a {
+    color: crimson;
+    text-decoration: none
+}
+footer span a:hover {
+    text-decoration: underline
+}
+#btn-mas {
+    display: none;
+    z-index: 999
+}
+.container {
+    bottom: 100px;
+    position: fixed;
+    right: 25px;
+    z-index: 999
+}
+.btn-mas label,.redes a {
+    background: #cc2b2b;
+    border-radius: 50%;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, .4);
+    color: #fff;
+    display: block;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .5s ease;
+    width: 55px;
+    z-index: 999
+}
+.redes a:hover {
+    background: #fff;
+    color: #cc2b2b
+}
+.redes a {
+    margin-bottom: -15px;
+    opacity: 0;
+    visibility: hidden
+}
+#btn-mas:checked~.redes a {
+    margin-bottom: 10px;
+    opacity: 1;
+    visibility: visible
+}
+.btn-mas label {
+    background: #f44141;
+    cursor: pointer;
+    font-size: 23px
+}
+#btn-mas:checked~.btn-mas label~ {
+    font-size: 25px;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg)
+}
+@media(min-width:1400px){
+    .contacto .contacto-contenedor {
+        height: 60vh;
+    }
+}
+@media(max-width:991px) {
+    .max-width {
+        padding: 0 50px
+    }
+}
+@media(max-width:947px) {
+    .fondo {
+    background: url(../img/banner-min.jpg); /* optimizar esta imagen*/
+    background-position: auto;
+    background-repeat: no-repeat;
+    background-size: 947px 100%;
+    }
+    .menu-btn {
+        display: block;
+        z-index: 999
+    }
+    .menu-btn i.active:before {
+        content: "\f00d"
+    }
+    .navbar .menu {
+        background: #111;
+        height: 100vh;
+        left: -110%;
+        padding-top: 80px;
+        position: fixed;
+        text-align: center;
+        top: 0;
+        transition: all .3s ease;
+        width: 100%
+    }
+    .navbar .menu.active {
+        left: 0
+    }
+    .navbar .menu li {
+        display: block
+    }
+    .navbar .menu li a {
+        display: inline-block;
+        font-size: 25px;
+        margin: 20px 0
+    }
+    .max-width {
+        max-width: 800px
+    }
+    .contacto .contacto-contenedor .columna,
+    .habilidades .habilidades-contenedor .columna {
+        margin-bottom: 35px;
+        width: 100%
+    }
+    .contacto .derecha form .campos {
+        display: -ms-flexbox;
+        display: block;
+    }
+    .contacto .derecha form .campos .campo {
+        padding-top: 15px;
+        margin-left: 0px;
+    }
+    .contacto .derecha form .campo {
+        padding-top: 15px;
+        margin-left: 0px;
+    }
+    .contacto .derecha form textarea {
+        margin-top: 15px;
+    }
+}
+@media(max-width:800px){
+    
+    .contacto .contacto-contenedor .columna {
+        width: 100%;
+    }
+}
+@media(max-width:700px) {
+    .max-width {
+        padding: 0px 25px
+    }
+    .menu-btn {
+        display: block;
+        z-index: 999
+    }
+    .menu-btn i.active:before {
+        content: "\f00d"
+    }
+    .navbar .menu {
+        background: #111;
+        height: 100vh;
+        left: -110%;
+        padding-top: 80px;
+        position: fixed;
+        text-align: center;
+        top: 0;
+        transition: all .3s ease;
+        width: 100%
+    }
+    .navbar .menu.active {
+        left: 0
+    }
+    .navbar .menu li {
+        display: block
+    }
+    .navbar .menu li a {
+        display: inline-block;
+        font-size: 25px;
+        margin: 20px 0
+    }
+    .contacto .derecha form .campo input,
+    .contacto .derecha form .campo textarea{
+        width: 500px;
+    }
+}
+@media(max-width:600px){
+    .contacto .derecha form .campo input,
+    .contacto .derecha form .campo textarea{
+        width: 380px;
+    }
+    .formulario_validacion-estado {
+        position: absolute;
+        right: 30px;
+        bottom: 42px;
+        z-index: 100;
+        font-size: 16px;
+        opacity: 0;
+    }
+    .contacto .contacto-contenedor .izquierda .link-mail {
+        font-size: 18px;
+    }
+}
+@media(max-width:457px) {  
+    .fondo{
+        background: url(../img/banner-min.jpg);/* optimizar esta imagen*/
+        background-position: auto;
+        background-repeat: no-repeat;
+        background-size: 1440px 100%;
+        
+    }
+    .contacto .derecha form .campo input,
+    .contacto .derecha form .campo textarea{
+        width: 320px;
+    }
+    .formulario_validacion-estado {
+        position: absolute;
+        right: 30px;
+        bottom: 42px;
+        z-index: 100;
+        font-size: 16px;
+        opacity: 0;
+    }
+    .contacto .contacto-contenedor .izquierda .link-mail {
+        font-size: 15px;
+    }
+    footer{
+        width: 100% auto;
+        max-width: 457px auto;
+        position: relative;
+        background: #111;
+        color: #fff;
+        padding: 20px 23px;
+        text-align: center
+    }
+}
+@media(max-width:412px) {  
+    .contacto .derecha form .campo input,
+    .contacto .derecha form .campo textarea{
+        width: 300px;
+    }
+    .formulario_validacion-estado {
+        position: absolute;
+        right: 30px;
+        bottom: 42px;
+        z-index: 100;
+        font-size: 16px;
+        opacity: 0;
+    }
+}
+
+
+@media(max-width:360px) { 
+    .contacto .derecha form .campo input,
+    .contacto .derecha form .campo textarea{
+        width: 280px;
+    }
+    .contacto .contacto-contenedor .izquierda .link-mail {
+        font-size: 15px;
+    }
+
+}
